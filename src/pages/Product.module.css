@@ -1,0 +1,123 @@
+/* .product {
+  margin: 2.5rem;
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  min-height: calc(100vh - 5rem);
+}
+
+.product section {
+  width: clamp(80rem, 80%, 90rem);
+  margin: 6rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+.product img {
+  width: 100%;
+}
+
+.product h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.product p {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.product section a {
+  margin-top: 2rem;
+} */
+
+/* Product.module.css */
+
+.product {
+  margin: 2.5rem;
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  min-height: calc(100vh - 5rem);
+}
+
+.product section {
+  /* This clamp is great for large screens but breaks on smaller ones */
+  width: clamp(80rem, 80%, 90rem);
+  margin: 6rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+.product img {
+  width: 100%;
+}
+
+.product h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.product p {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+/* This rule was in the original prompt but wasn't used in the JSX */
+.product section a {
+  margin-top: 2rem;
+}
+
+/* ======================================= */
+/*           RESPONSIVE DESIGN             */
+/* ======================================= */
+
+/* For Tablets (e.g., up to 950px) */
+@media (max-width: 950px) {
+  .product section {
+    /* Switch to a single-column layout */
+    grid-template-columns: 1fr;
+    /* Override the clamp() and use a percentage width */
+    width: 90%;
+    /* Reduce the gap for the vertical layout */
+    gap: 4rem;
+  }
+
+  .product img {
+    width: 100%;
+  }
+}
+
+/* For Mobile Phones (e.g., up to 600px) */
+@media (max-width: 600px) {
+  .product {
+    /* Use the full screen width */
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .product section {
+    /* Use the full width available within the parent's padding */
+    width: 100%;
+    margin: 4rem auto;
+    gap: 3rem;
+  }
+
+  .product h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .product p {
+    font-size: 1.5rem;
+  }
+
+  .product img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,112 @@
+/* .homepage {
+  height: calc(100vh - 5rem);
+  margin: 2.5rem;
+  background-image: linear-gradient(
+      rgba(36, 42, 46, 0.8),
+      rgba(36, 42, 46, 0.8)
+    ),
+    url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 5rem;
+}
+
+.homepage section {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.homepage h1 {
+  font-size: 4.5rem;
+  line-height: 1.3;
+}
+
+.homepage h2 {
+  width: 90%;
+  font-size: 1.9rem;
+  color: var(--color-light--1);
+  margin-bottom: 2.5rem;
+} */
+
+/* Homepage.module.css */
+
+.homepage {
+  height: calc(100vh - 5rem);
+  margin: 2.5rem;
+  background-image: linear-gradient(
+      rgba(36, 42, 46, 0.8),
+      rgba(36, 42, 46, 0.8)
+    ),
+    url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 5rem;
+
+  /* Added for smoother transitions if you have any */
+  transition: all 0.3s;
+}
+
+.homepage section {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.homepage h1 {
+  font-size: 4.5rem;
+  line-height: 1.3;
+}
+
+.homepage h2 {
+  width: 90%;
+  font-size: 1.9rem;
+  color: var(--color-light--1);
+  margin-bottom: 2.5rem;
+}
+
+/* ======================================= */
+/*           RESPONSIVE DESIGN             */
+/* ======================================= */
+
+/* For Tablets (e.g., up to 850px) */
+@media (max-width: 850px) {
+  .homepage h1 {
+    font-size: 4rem;
+  }
+  .homepage h2 {
+    font-size: 1.8rem;
+    width: 100%; /* Allow full width to prevent awkward line breaks */
+  }
+  .homepage {
+    padding: 2rem 3rem;
+  }
+}
+
+/* For Mobile Phones (e.g., up to 550px) */
+@media (max-width: 550px) {
+  .homepage {
+    margin: 0;
+    height: 100vh; /* Take full viewport height */
+    padding: 2rem;
+    border-radius: 0; /* No rounded corners on mobile full screen */
+  }
+  .homepage h1 {
+    font-size: 2.8rem;
+  }
+  .homepage h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+  .homepage section {
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,109 @@
+/* .login {
+  margin: 2.5rem;
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  min-height: calc(100vh - 5rem);
+}
+
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+  padding: 2rem 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  width: 48rem;
+  margin: 8rem auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn {
+  color: inherit;
+  text-transform: uppercase;
+  padding: 0.8rem 1.6rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.primary {
+  font-weight: 700;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+} */
+
+/* Login.module.css */
+
+.login {
+  margin: 2.5rem;
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  min-height: calc(100vh - 5rem);
+}
+
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+  padding: 2rem 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  /* This is the part that needs to be responsive */
+  width: 48rem;
+  margin: 8rem auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn {
+  color: inherit;
+  text-transform: uppercase;
+  padding: 0.8rem 1.6rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.primary {
+  font-weight: 700;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+}
+
+/* ======================================= */
+/*           RESPONSIVE DESIGN             */
+/* ======================================= */
+
+/* For Tablets and Mobile Phones (e.g., up to 600px) */
+@media (max-width: 600px) {
+  .login {
+    /* Make the container full-screen for an immersive mobile experience */
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .form {
+    /* Remove the fixed width and let the form take up the available space */
+    width: 100%;
+    /* Reduce the top margin to save vertical space on shorter screens */
+    margin: 4rem auto;
+  }
+}

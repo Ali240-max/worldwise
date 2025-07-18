@@ -1,0 +1,72 @@
+/* .sidebar {
+  flex-basis: 56rem;
+  background-color: var(--color-dark--1);
+  padding: 3rem 5rem 3.5rem 5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 4.8rem);
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.copyright {
+  font-size: 1.2rem;
+  color: var(--color-light--1);
+}
+
+@media (max-width: 950px) {
+  .sidebar {
+    height: 40%;
+  }
+} */
+
+/* Sidebar.module.css */
+
+.sidebar {
+  flex-basis: 56rem;
+  background-color: var(--color-dark--1);
+  padding: 3rem 5rem 3.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* The height is relative to the parent's padding */
+  height: calc(100vh - 4.8rem);
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.copyright {
+  font-size: 1.2rem;
+  color: var(--color-light--1);
+}
+
+/* --- RESPONSIVE --- */
+
+/* For tablets and smaller screens */
+@media (max-width: 950px) {
+  .sidebar {
+    /* When layout is a column, width should be 100% and flex-basis removed */
+    width: 100%;
+    flex-basis: auto;
+    /* Define a height for the sidebar in the stacked layout */
+    height: 45vh;
+    /* Add horizontal overflow handling for lists if they get too long */
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 550px) {
+  .sidebar {
+    /* Reduce height slightly for very small screens */
+    height: 40vh;
+    padding: 2rem 2.5rem;
+  }
+}

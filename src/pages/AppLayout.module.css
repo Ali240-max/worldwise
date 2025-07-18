@@ -1,0 +1,42 @@
+/* .app {
+  height: 100vh;
+  padding: 2.4rem;
+  overscroll-behavior-y: none;
+  display: flex;
+  position: relative;
+}
+
+@media (max-width: 950px) {
+  .app {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+} */
+
+/* AppLayout.module.css */
+
+.app {
+  height: 100vh;
+  padding: 2.4rem;
+  overscroll-behavior-y: none;
+  display: flex;
+  position: relative;
+}
+
+/* --- RESPONSIVE --- */
+
+/* For tablets and smaller screens */
+@media (max-width: 950px) {
+  .app {
+    flex-direction: column;
+    /* We remove justify-content: space-between to keep items stacked together */
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 550px) {
+  .app {
+    /* Remove padding for a full-screen mobile experience */
+    padding: 0;
+  }
+}
