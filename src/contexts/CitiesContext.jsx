@@ -1,82 +1,47 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useEffect, useContext, useState } from "react";
 
 const CitiesContext = createContext();
 
-const BASE_URL = "http://localhost:8000";
-
 function CitiesProvider({ children }) {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setLoading] = useState(false);
+  const [cities, setCities] = useState(() => {
+    const storedCities = localStorage.getItem("cities");
+    return storedCities ? JSON.parse(storedCities) : [];
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
 
-  useEffect(function () {
-    async function fetchCities() {
-      try {
-        setLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
-        setCities(data);
-      } catch {
-        alert("There was an error");
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchCities();
-  }, []);
-
-  const getCity = useCallback(
-    async function getCity(id) {
-      try {
-        setLoading(true);
-        const res = await fetch(`${BASE_URL}/cities/${id}`);
-        const data = await res.json();
-        setCurrentCity(data);
-      } catch {
-        alert("There was an error");
-      } finally {
-        setLoading(false);
-      }
+  useEffect(
+    function () {
+      localStorage.setItem("cities", JSON.stringify(cities));
     },
-    [currentCity.id]
+    [cities]
   );
 
+  function getCity(id) {
+    const city = cities.find((c) => c.id === id);
+    setCurrentCity(city);
+  }
+
   async function createCity(newCity) {
+    setIsLoading(true);
     try {
-      setLoading(true);
-      const res = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      setCities((cities) => [...cities, data]);
-    } catch {
-      alert("There was an error");
+      setCities((prevCities) => [...prevCities, newCity]);
+    } catch (err) {
+      console.error("There was an error creating the city:", err);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   }
 
   async function deleteCity(id) {
+    setIsLoading(true);
     try {
-      setLoading(true);
-      await fetch(`${BASE_URL}/cities/${id}`, {
-        method: "DELETE",
-      });
-      setCities((cities) => cities.filter((c) => c.id !== id));
-    } catch {
-      alert("There was an error");
+      setCities((prevCities) => prevCities.filter((city) => city.id !== id));
+    } catch (err) {
+      console.error("There was an error deleting the city:", err);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   }
 
